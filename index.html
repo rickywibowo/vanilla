@@ -9,6 +9,7 @@
 <body>
     <header>Welcome to my POS</header>
     <nav>Home</nav>
+    <div id="menulist"></div>
     <div class="parent">
         <form id="fastcode" class="fastcode">
             <input class="fctext1" type="text" maxlength="2" name="input-1[]" onkeyup="cek_key(event)" onchange="cekvalue1(this)" />
@@ -42,8 +43,29 @@
             ]
         ]
     ];
+
+    const simple = [1,3,5,6];
+    const simple2 = [5,[1,2],6,[3,4]];
+    const simpleObj = {
+        {'asu':10}
+        };
+
+    for (var x = 0; x < simpleObj.length; x++) {
+        console.log(simpleObj[x].length);
+    }
     //karakter 1 = 1-3, karakter 2 = 1-3;
-    console.log(menulist);
+    console.log(menulist); 
+
+    //let arrayroot = menulist.length;
+    for (var i = 0; i < menulist.length; i++) {
+    console.log(i);
+    console.log(menulist[i][0]); 
+    console.log(menulist[i][1]);
+    let listtext = '<span>' + menulist[i][1] + ' :' + menulist[i][0] + '</span><br />';
+    document.getElementById('menulist').innerHTML +=listtext;
+    console.log(listtext);
+    //Do something
+    }
 
     function cek_input(t){
         //oninput="this.value=this.value.replace(/[^0-9]/g,'');"
@@ -51,6 +73,8 @@
 
     function cek_key(t){
         console.log(t.keyCode);
+        //console.log(menulist.length);
+        console.log(t.key + 'tes' + simple2.includes(parseInt(t.key)));
     }
     function getArrayDepth(value) {
         return Array.isArray(value) ? 1 + Math.max(...value.map(getArrayDepth)) :0;
@@ -60,6 +84,8 @@
         //console.log(t.value + " indexof" + t.indexOf());
         console.log(Array.from(t.parentNode.children).indexOf(t));
         console.log(t.value);
+
+
     }
 
     function cekvalue2(t){
