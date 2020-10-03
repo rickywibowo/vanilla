@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css"
+    <title>Testing</title>
+</head>
+<body>
+    <header>Welcome to my POS123</header>  
+    <nav>Home</nav>
+    <div class="parent">
+        <form id="fastcode" class="fastcode">
+            <input class="fctext1" type="text" name="input-1" /> 
+            <input class="fctext2" type="text" name="input-2" />
+        </form>
+            <button onclick="trigger();">Trigger</button>
+    </div>
+</body>
+<script>
+    function trigger(){
+        var element1 = document.createElement("input");
+        element1.classList.add("fctext1");
+        element1.setAttribute("type","text");
+
+        var element2 = document.createElement("input");
+        element2.classList.add("fctext2");
+        element2.setAttribute("type","text");
+
+        console.log(element1);
+
+        var fastcode = document.getElementById('fastcode');
+        fastcode.append(element1);
+        fastcode.append(element2);
+
+    }
+</script>
+
+</html>

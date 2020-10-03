@@ -1,0 +1,60 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.parent{
+    height: 100vh;
+    border: 20px solid rgb(0,0,0);
+    display: flex;
+    flex-direction: column;
+}
+.child1{
+    width: 100px;
+    height: 100px;
+    background: rgb(172, 11, 11);
+    order: 0;
+}
+.child2{
+    width: 100px;
+    height: 100px;
+    background: rgb(77, 8, 189);
+    order: 2;
+}
+.child3{
+    width: 100px;
+    height: 100px;
+    background: rgb(9, 243, 40);
+    order: 1;
+}
+.child4{
+    width: 100px;
+    height: 100px;
+    background: rgb(150, 243, 40);
+    order: 4;
+}
+.fastcode{
+}
+.fctext1{
+
+    margin: 5px;
+    padding: 5px;
+    width: 50px;
+    min-width: 110px;
+    height: 50px;
+    text-align: right;
+    background: black;
+    color: white;
+    font-size: 7vh;
+}
+.fctext2{
+    margin: 5px;
+    padding: 5px;
+    width: 50px;
+    min-width: 50px;
+    height: 50px;
+    text-align: right;
+    background: black;
+    color: white;
+    font-size: 7vh;
+}
