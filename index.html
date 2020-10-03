@@ -7,33 +7,96 @@
     <title>Testing</title>
 </head>
 <body>
-    <header>Welcome to my POS123</header>  
+    <header>Welcome to my POS</header>
     <nav>Home</nav>
     <div class="parent">
         <form id="fastcode" class="fastcode">
-            <input class="fctext1" type="text" name="input-1" /> 
-            <input class="fctext2" type="text" name="input-2" />
+            <input class="fctext1" type="text" maxlength="2" name="input-1[]" onkeyup="cek_key(event)" onchange="cekvalue1(this)" />
+            <input class="fctext2" type="text" maxlength="2" name="input-2[]" onkeyup="cek_key(event)" onchange="cekvalue2(this)"/>
         </form>
             <button onclick="trigger();">Trigger</button>
+            <button onclick="cek_value();">CEK VALUE</button> 
     </div>
 </body>
-<script>
+<script> 
+    const menulist = [
+        ["Nasi",1,
+            [
+                ["Nasi Goreng",1],
+                ["Nasi Uduk",2],
+                ["Nasi Pecel",3]
+            ]
+        ],
+        ["Mie",2,
+            [
+                ["Mie Goreng",1],
+                ["Mie Ayam",2],
+                ["Mie Kuah",3]
+            ]
+        ],
+        ["Minuman",3,
+            [
+                ["Es Teh",1],
+                ["Aqua",2],
+                ["Es Jeruk",3]
+            ]
+        ]
+    ];
+    //karakter 1 = 1-3, karakter 2 = 1-3;
+    console.log(menulist);
+
+    function cek_input(t){
+        //oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+    }
+
+    function cek_key(t){
+        console.log(t.keyCode);
+    }
+    function getArrayDepth(value) {
+        return Array.isArray(value) ? 1 + Math.max(...value.map(getArrayDepth)) :0;
+    }
+    console.log("dalem:" + getArrayDepth(menulist));
+    function cekvalue1(t){
+        //console.log(t.value + " indexof" + t.indexOf());
+        console.log(Array.from(t.parentNode.children).indexOf(t));
+        console.log(t.value);
+    }
+
+    function cekvalue2(t){
+        console.log(t.value);
+    }
+
+    function halu(){
+        console.log("halu");
+    }
     function trigger(){
         var element1 = document.createElement("input");
         element1.classList.add("fctext1");
         element1.setAttribute("type","text");
+        element1.setAttribute("name","input-1[]");
+        element1.setAttribute("onchange","cekvalue1(this)");
+        //element1.addEventListener("onchange",halu,false);
+        console.log(element1);
 
         var element2 = document.createElement("input");
         element2.classList.add("fctext2");
         element2.setAttribute("type","text");
+        element2.setAttribute("name","input-2[]");
+        element2.setAttribute("onchange","cekvalue2(this)");
+        //element2.addEventListener("onchange",halu,false);
 
-        console.log(element1);
 
         var fastcode = document.getElementById('fastcode');
         fastcode.append(element1);
         fastcode.append(element2);
-        ////
 
+        console.log(element2);
+
+    }
+    function cek_value(){
+        var input1 = document.getElementsByName('input-1[]');
+        var input2 = document.getElementsByName('input-2[]');
+        console.log(input1);
     }
 </script>
 
